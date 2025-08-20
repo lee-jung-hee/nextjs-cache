@@ -6,10 +6,12 @@ import { getMessages } from "@/lib/messages";
 // export const dynamic = 'force-static'; // Always render statically 그렇게 많이 사용되지는 않음
 
 export default async function MessagesPage() {
-  const response = await fetch("http://localhost:8080/messages", {
-    next: { tag: ["msg"] },
-  });
-  const messages = await response.json();
+  // const response = await fetch("http://localhost:8080/messages", {
+  //   next: { tag: ["msg"] },
+  // });
+  // const messages = await response.json();
+
+  const messages = await getMessages();
 
   if (!messages || messages.length === 0) {
     return <p>No messages found</p>;
